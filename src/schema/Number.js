@@ -4,11 +4,17 @@ class NumberScheme extends BaseScheme {
 	constructor(){
 		super();
 
-		this.rules.push((value) => typeof value === 'number');
+		this.rules.push((value) => value == null || typeof value === 'number');
+	}
+
+	required(){
+		this.addRule((value) => value != null);
+
+		return this;
 	}
 
 	positive(){
-		this.addRule((value) => value > 0);
+		this.addRule((value) => value === null || value > 0);
 
 		return this;
 	}
