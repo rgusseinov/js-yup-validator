@@ -4,7 +4,7 @@ class StringScheme extends BaseScheme {
 	constructor(){
 		super();
 
-		this.rules.push((value) => typeof value !== 'object');
+		this.rules.push((value) => typeof value !== 'object' || value === null);
 	}
 
 	required(){
