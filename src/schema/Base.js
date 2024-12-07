@@ -1,10 +1,8 @@
 class BaseScheme {
 	rules = [];
 
-	constructor(type){
+	constructor(){
 		this.rules = [];
-
-		// this.type = type
 	}
 
 	isValid(data){
