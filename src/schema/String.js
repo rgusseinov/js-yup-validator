@@ -7,6 +7,12 @@ class StringScheme extends BaseScheme {
 		this.rules.push((value) => typeof value !== 'object');
 	}
 
+	required(){
+		this.addRule((value) => value != null && value !== '');
+
+		return this;
+	}
+
 	minLength(length){
 		this.addRule((value) => value.length > length);
 

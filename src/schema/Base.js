@@ -1,8 +1,10 @@
 class BaseScheme {
 	rules = [];
 
-	constructor(){
+	constructor(type){
 		this.rules = [];
+
+		// this.type = type
 	}
 
 	isValid(data){
@@ -14,9 +16,7 @@ class BaseScheme {
 	}
 
 	required(){
-		this.addRule((value) => typeof value === 'string' && value.length > 0);
-
-		return this;
+		throw new Error("Can't be implemented");
 	}
 
 	contains(substring){
