@@ -3,8 +3,8 @@ import BaseScheme from "./Base";
 class ShapeScheme extends BaseScheme {
 	objectData = {}
 
-	constructor(){
-		super();
+	constructor(...args){
+		super(...args);
 	}
 
 	shape(object){

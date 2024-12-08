@@ -1,8 +1,8 @@
 import BaseScheme from "./Base";
 
 class StringScheme extends BaseScheme {
-	constructor(){
-		super();
+	constructor(...args){
+		super(...args);
 
 		this.rules.push((value) => typeof value !== 'object' || value === null);
 	}

@@ -1,8 +1,16 @@
 class BaseScheme {
 	rules = [];
+	validators = {}
 
-	constructor(){
+	constructor(validators = {}){
+		this.validators = validators;
 		this.rules = [];
+	}
+
+	test(fn, ...args){
+		this.addRule((value) => this.validators[fn](value, ...args));
+
+		return this;
 	}
 
 	isValid(data){
@@ -11,10 +19,6 @@ class BaseScheme {
 
 	addRule(fn){
 		this.rules.push(fn);
-	}
-
-	required(){
-		throw new Error("Can't be implemented");
 	}
 
 	contains(substring){

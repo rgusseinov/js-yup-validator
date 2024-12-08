@@ -1,9 +1,9 @@
 import BaseScheme from "./Base";
 
 class NumberScheme extends BaseScheme {
-	constructor(){
-		super();
-
+	constructor(...args){
+		super(...args);
+		
 		this.rules.push((value) => value == null || typeof value === 'number');
 	}
 
