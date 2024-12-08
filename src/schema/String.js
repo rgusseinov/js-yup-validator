@@ -1,3 +1,4 @@
+import { isNotEmptyString, isRequired } from "../rules/rules";
 import BaseScheme from "./Base";
 
 class StringScheme extends BaseScheme {
@@ -8,7 +9,7 @@ class StringScheme extends BaseScheme {
 	}
 
 	required(){
-		this.addRule((value) => value != null && value !== '');
+		this.addRule((value) => isRequired(value) && isNotEmptyString(value));
 
 		return this;
 	}

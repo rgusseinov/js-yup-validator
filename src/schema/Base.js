@@ -14,7 +14,7 @@ class BaseScheme {
 	}
 
 	isValid(data){
-		return this.rules.every(rule => rule(data));
+		return !this.rules.some((rule) => !rule(data)); // This improves performance, especially for large data inputs.
 	}
 
 	addRule(fn){
@@ -22,7 +22,7 @@ class BaseScheme {
 	}
 
 	contains(substring){
-		this.addRule((value) => value.includes(substring));
+		this.addRule((value) => typeof value === 'string' && value.includes(substring));
 
 		return this;
 	}

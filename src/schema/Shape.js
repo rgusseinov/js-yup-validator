@@ -12,9 +12,11 @@ class ShapeScheme extends BaseScheme {
 	}
 
 	isValid(data){
+		const keys = Object.keys(this.objectData);
+
 		return (
-			Object.keys(data).every((key) => this.objectData[key].isValid(data[key]))
-			&& Object.keys(data).length === Object.keys(this.objectData).length
+			keys.every((key) => data.hasOwnProperty(key) && this.objectData[key].isValid(data[key])) &&
+			Object.keys(data).length === keys.length
 		);
 	}
 }

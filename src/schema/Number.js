@@ -1,3 +1,4 @@
+import { isRequired } from "../rules/rules";
 import BaseScheme from "./Base";
 
 class NumberScheme extends BaseScheme {
@@ -8,7 +9,7 @@ class NumberScheme extends BaseScheme {
 	}
 
 	required(){
-		this.addRule((value) => value != null);
+		this.addRule((value) => isRequired(value));
 
 		return this;
 	}
@@ -20,7 +21,9 @@ class NumberScheme extends BaseScheme {
 	}
 
 	range(x, y){
-		this.addRule((value) => value >= x && value <= y)
+		this.addRule((value) => value >= x && value <= y);
+
+		return this;
 	}
 }
 
